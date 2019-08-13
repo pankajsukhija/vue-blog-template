@@ -1,23 +1,41 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <Header />
+    <MainCarousel></MainCarousel>
+  <div class="container" id = "mainContainer">
+    <div class="columns">
+      <div class="column is-two-thirds">
+        <router-view/>
+      </div>
+      <div class="column is-one-third">
+        <Sidebar />
+      </div>
     </div>
-    <router-view/>
+  </div>
   </div>
 </template>
 
 <style>
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
+  /* background-color: #f8f8f8; */
 }
 #nav {
   padding: 30px;
+}
+
+#mainContainer{
+  padding: 10px;
+  /* box-shadow: 0 4px 12px 0 rgba(0,0,0,.2); */
+}
+
+.columns{
+  /* margin-top: 80px !important; */
 }
 
 #nav a {
@@ -29,3 +47,19 @@
   color: #42b983;
 }
 </style>
+
+<script>
+import Header from '@/components/Header'
+import Sidebar from '@/components/Sidebar'
+import MainCarousel from '@/components/MainCarousel'
+
+export default {
+  name: 'app',
+  components: {
+    Header,
+    Sidebar,
+    MainCarousel
+  }
+
+}
+</script>
