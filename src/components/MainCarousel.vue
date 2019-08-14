@@ -1,6 +1,6 @@
 <template>
     <div id=mainCarousel>
-        <carousel-3d autoplay="true" width="700" height="350" controls-visible="true">
+        <carousel-3d autoplay width="700" height="350" controls-visible>
             <slide class="carouselSlide" :index="0">
                 <!-- Slide 1 Content -->
             </slide>

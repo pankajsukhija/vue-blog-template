@@ -3,10 +3,13 @@
   <!-- <div>
     {{this.thoughtsList[0].data.title}}
   </div> -->
-
   <b-message class='sidebarItem' title="Danger" type="is-danger" aria-close-label="Close message">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id fermentum quam. Proin sagittis, nibh id hendrerit imperdiet, elit sapien laoreet elit
   </b-message>
+  
+  <div class="sidebarItem">
+  <img src='https://via.placeholder.com/500' />
+  </div>
 
   <b-message class='sidebarItem' size="is-medium">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id fermentum quam. Proin sagittis, nibh id hendrerit imperdiet, elit sapien laoreet elit

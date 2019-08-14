@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <MainCarousel></MainCarousel>
+    <MainCarousel />
   <div class="container" id = "mainContainer">
     <div class="columns">
       <div class="column is-two-thirds">
@@ -12,6 +12,7 @@
       </div>
     </div>
   </div>
+  <MainFooter />
   </div>
 </template>
 
@@ -34,9 +35,9 @@
   /* box-shadow: 0 4px 12px 0 rgba(0,0,0,.2); */
 }
 
-.columns{
-  /* margin-top: 80px !important; */
-}
+/* .columns{
+  margin-top: 80px !important;
+} */
 
 #nav a {
   font-weight: bold;
@@ -52,13 +53,15 @@
 import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
 import MainCarousel from '@/components/MainCarousel'
+import MainFooter from '@/components/MainFooter'
 
 export default {
   name: 'app',
   components: {
     Header,
     Sidebar,
-    MainCarousel
+    MainCarousel,
+    MainFooter
   }
 
 }
