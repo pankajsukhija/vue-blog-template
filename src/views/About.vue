@@ -34,7 +34,7 @@ export default {
     },
 
     changeStupidButtonState : function(){
-    this.$store.dispatch('changeStupidButtonState')
+      this.$store.dispatch('changeStupidButtonState')
     },
 
     setMsg : function(event){

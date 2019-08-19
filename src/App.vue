@@ -3,6 +3,7 @@
     <Header />
     <MainCarousel />
   <div class="container" id = "mainContainer">
+    <PostViewSwitcher/>
     <div class="columns">
       <div class="column is-two-thirds">
         <router-view/>
@@ -54,6 +55,8 @@ import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
 import MainCarousel from '@/components/MainCarousel'
 import MainFooter from '@/components/MainFooter'
+import PostViewSwitcher from '@/components/PostViewSwitcher'
+
 
 export default {
   name: 'app',
@@ -61,7 +64,8 @@ export default {
     Header,
     Sidebar,
     MainCarousel,
-    MainFooter
+    MainFooter,
+    PostViewSwitcher
   }
 
 }
