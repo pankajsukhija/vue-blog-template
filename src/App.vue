@@ -3,7 +3,6 @@
     <Header />
     <MainCarousel />
   <div class="container" id = "mainContainer">
-    <PostViewSwitcher/>
     <div class="columns">
       <div class="column is-two-thirds">
         <router-view/>
@@ -26,6 +25,9 @@
   /* text-align: center; */
   color: #2c3e50;
   /* background-color: #f8f8f8; */
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 16px;
+  /* font-weight: 400; */
 }
 #nav {
   padding: 30px;
@@ -55,7 +57,7 @@ import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
 import MainCarousel from '@/components/MainCarousel'
 import MainFooter from '@/components/MainFooter'
-import PostViewSwitcher from '@/components/PostViewSwitcher'
+
 
 
 export default {
@@ -65,7 +67,6 @@ export default {
     Sidebar,
     MainCarousel,
     MainFooter,
-    PostViewSwitcher
   }
 
 }

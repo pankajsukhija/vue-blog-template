@@ -13,9 +13,10 @@
   <b-button name='reverseButton' @click="this.reverseMessage">Reverse Message</b-button>
   <Sidebar v-if="isLoaded" v-bind:thoughtsList=this.thoughtsList></Sidebar>
   <b-progress v-else></b-progress> -->
-  <PostPreview/>
-  <PostPreview/>
-  <PostPreview/>
+  <PostViewSwitcher/>
+
+  <PostPreview v-for="n in uptoRange" v-bind:key="n"/>
+
   </div>
 </template>
 
@@ -24,13 +25,16 @@
 // import axios from 'axios'
 // import { setInterval } from 'timers';
 import PostPreview from "@/components/PostPreview"
+import PostViewSwitcher from '@/components/PostViewSwitcher'
+
 
 export default {
   
   name: 'home',
   components: {
     // Sidebar
-    PostPreview
+    PostPreview,
+    PostViewSwitcher
   },
 
   data: function () {
@@ -44,6 +48,7 @@ export default {
       // ],
       // thoughtsList: [{data : ''}],
       // isLoaded : false
+      uptoRange : [...Array(7).keys()]
     }
   },
 
