@@ -51,6 +51,18 @@
 
         <template slot="end">
             <b-navbar-item tag="div">
+                <b-autocomplete
+                    class = 'headerSearchBar'
+                    rounded
+                    :data="searchResult"
+                    placeholder="Search"
+                    icon="magnify"
+                    @typing="debouncedFilterData"
+                    @select="option => selected = option">
+                    <template slot="empty">No results found</template>
+                </b-autocomplete>
+            </b-navbar-item>
+            <b-navbar-item tag="div">
                 <div class="buttons">
                     <a @click='this.signup' class="button is-primary">
                         <strong>Sign up</strong>
@@ -121,11 +133,47 @@
 </style>
 
 <script>
+
+import throttle from 'lodash/throttle'
+
+
 export default {
     name: 'mainHeader',
 
-    props: {
+    data() {
+        return {
+            sampleData: [
+                'Angular',
+                'Angular 2',
+                'Aurelia',
+                'Backbone',
+                'Ember',
+                'jQuery',
+                'Meteor',
+                'Node.js',
+                'Polymer',
+                'React',
+                'RxJS',
+                'Vue.js'
+            ],
+            searchTerm: '',
+            selected: null,
+            searchResult : []
+        }
     },
+
+    // Commenting this since I am using lodash debounce
+
+    // computed: {
+    //     filteredDataArray : function () {
+    //         return this.sampleData.filter((option) => {
+    //             return option
+    //                 .toString()
+    //                 .toLowerCase()
+    //                 .indexOf(this.searchTerm.toLowerCase()) >= 0
+    //         })
+    //     }
+    // },
 
     methods : {
         signup : function () {
@@ -133,7 +181,25 @@ export default {
                 message: 'This function will be implemented soon. No promise though..',
                 type: 'is-success'
             })
-        }
+        },
+
+        // Make sure there is 1 second gap between flter requests
+        // To be used for API calls
+
+        debouncedFilterData : throttle(function (searchTerm) {
+            if (searchTerm.length > 0) {
+                // console.log(searchTerm)
+                this.searchResult = this.sampleData.filter((option) => {
+                    return option
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(searchTerm.toLowerCase()) >= 0
+                })
+                this.$emit('searchReqSent', searchTerm)
+            }
+        }, 1000)
+
+
     }
 }
 </script>

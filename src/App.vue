@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header @searchReqSent='logSearchReqTime' />
     <MainCarousel />
   <div class="container" id = "mainContainer">
     <div class="columns">
@@ -67,6 +67,13 @@ export default {
     Sidebar,
     MainCarousel,
     MainFooter,
+  },
+
+  methods : {
+    // Created only to test emitting in Vue :)
+    logSearchReqTime : function (value) {
+      console.log(`${new Date().getTime()} : A search request was sent by user for "${value}"`)
+    }
   }
 
 }

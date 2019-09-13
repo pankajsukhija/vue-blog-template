@@ -7,11 +7,13 @@ Vue.config.devtools = process.env.NODE_ENV === 'development'
 export default new Vuex.Store({
   // Keeping it all together for now :)
   // https://vuex.vuejs.org/guide/structure.html
+
   state: {
     stupidButtonState : false,
     msg : 'Thanos did nothing wrong!',
     isCompactPostView : false
   },
+
   getters : {
     getStupidButtonState(state){
       return state.stupidButtonState
@@ -23,6 +25,7 @@ export default new Vuex.Store({
       return state.isCompactPostView
     }
   },
+
   // You don't access mutation directly.. use store.commit(type, payload)
   // https://vuex.vuejs.org/guide/mutations.html
   // mutations are synchronous transactions
@@ -38,6 +41,7 @@ export default new Vuex.Store({
       state.isCompactPostView = !state.isCompactPostView
     }
   },
+  
   // Actions are triggered with the store.dispatch method
   // https://vuex.vuejs.org/guide/actions.html
   actions: {

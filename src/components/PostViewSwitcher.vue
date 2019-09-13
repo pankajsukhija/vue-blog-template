@@ -25,7 +25,8 @@ export default {
         changePostView : function(){
             this.$store.dispatch('changePostView')
         }
-    }
+    },
+
 }
 </script>
 
