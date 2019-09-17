@@ -19,6 +19,11 @@
             to="/about">
                 About
             </b-navbar-item>
+            <b-navbar-item
+            tag="router-link"
+            to="/charts">
+                Charts
+            </b-navbar-item>
             <b-dropdown
                 hoverable
                 position="is-bottom-left"
