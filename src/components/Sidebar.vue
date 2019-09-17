@@ -3,6 +3,7 @@
   <!-- <div>
     {{this.thoughtsList[0].data.title}}
   </div> -->
+  <UploaderSidebar />
   <ThoughsSidebar />
 
   <b-message class='sidebarItem' title="Danger" type="is-danger" aria-close-label="Close message">
@@ -10,7 +11,7 @@
   </b-message>
   
   <div class="sidebarItem">
-  <img src='https://via.placeholder.com/500' />
+  <img class="imageInSidebar" src='https://via.placeholder.com/500' />
   </div>
 
   </div>
@@ -19,11 +20,13 @@
 <script>
 
 import ThoughsSidebar from './ThoughtsSidebar'
+import UploaderSidebar from './UploaderSidebar'
 
 export default {
   name: 'mainSidebar',
   components: {
-    ThoughsSidebar
+    ThoughsSidebar,
+    UploaderSidebar
   },
   // props: {thoughtsList : Array},
 
@@ -50,6 +53,9 @@ export default {
   margin: 10px;
 }
 
+.imageInSidebar{
+  margin-bottom: -10px !important;
+}
 .message-header{
   border-radius: 0px 0px 0px 0px !important;
   /* border-top-left-radius: 0px !important;

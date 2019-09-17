@@ -33,5 +33,10 @@ export default new Router({
       component: () => import( './views/Post.vue')
     },
 
+    {
+      path: '*',
+      component : () => import( './views/NotFound.vue')
+    }
+
   ]
 })

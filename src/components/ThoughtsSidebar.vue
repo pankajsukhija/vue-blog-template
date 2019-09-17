@@ -1,7 +1,7 @@
 <template>
 <!-- This widget fetches latest data from r/showerthoughts -->
   <b-message class='sidebarItem' size="is-medium">
-    <p v-if="isLoaded">{{this.thoughtsList[0].data.title}}</p>
+    <p v-if="isLoaded">{{this.thoughtsList}}</p>
     <p v-else>Loading thoughts..</p>
   </b-message>
   
@@ -31,7 +31,7 @@ export default {
             try {
                 let result = await axios('https://www.reddit.com/r/showerthoughts/new.json?sort=new')
                 // console.log(result.data.data.children)
-                this.thoughtsList = result.data.data.children
+                this.thoughtsList = result.data.data.children[0].data.title
                 this.isLoaded = true
             } catch (error) {
                 console.log(error)
@@ -41,7 +41,13 @@ export default {
 
     mounted () {
         setInterval(() => this.fetchThoughts(), 5000)
-    }
+    },
+
+    // updated(){
+    //     // This must not run when data recieved is same
+    //     // Working now after using children[0].data.title :)
+    //     console.log(`ThoughtsSidebar component updated`)
+    // }
 
 }
 </script>

@@ -6,7 +6,7 @@ import './registerServiceWorker'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 
-Vue.use(Buefy)
+Vue.use(Buefy);
 
 Vue.config.productionTip = false
 // Vue.config.devtools = process.env.NODE_ENV === 'development'
