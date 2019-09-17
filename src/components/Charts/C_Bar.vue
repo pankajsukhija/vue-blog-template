@@ -4,30 +4,32 @@ import { Bar } from 'vue-chartjs'
 export default {
     extends: Bar,
     name : 'c_bar',
-    data: () => ({
+    data: function (){
+        return {
+        }
+    },
+
+    props : {
         chartdata: {
-        labels: ['Jan', 'Feb', 'Mar', "Apr", 'May', 'Jun', 'Jul', 'Aug', 'Sept'],
-        datasets: [
-            {
-            label: 'No. of Votes',
-            backgroundColor: 'orange',
-            data: [40, 23, 33, 56, 23, 34, 45, 45, 61]
-            },
-            {
-            label: 'No. of Nopes',
-            backgroundColor: '#f77879',
-            data: [43, 13, 43, 36, 21, 30, 34, 89, 32]
-            }
-        ]
+            type: Object,
+            default: null
         },
         options: {
-            responsive: true,
-            maintainAspectRatio: false
+            type: Object,
+            default: null
         }
-    }),
+    },
 
     mounted () {
-        this.renderChart(this.chartdata, this.options)
+        this.renderChart(this.chartdata, this.options, { responsive: true, maintainAspectRatio: false })
+    },
+
+    watch: {
+        chartdata: function() {
+        // this._chart.destroy();
+        this.renderChart(this.chartdata, this.options, { responsive: true, maintainAspectRatio: false })
+        }
+
     }
 }
 </script>
