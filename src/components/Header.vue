@@ -63,8 +63,11 @@
                 </b-autocomplete>
             </b-navbar-item>
             <b-navbar-item tag="div">
+                <b-modal :active.sync="isSignupModalActive" has-modal-card>
+                    <SignupForm />
+                </b-modal>
                 <div class="buttons">
-                    <a @click='this.signup' class="button is-primary">
+                    <a @click='this.openSignupModal' class="button is-primary">
                         <strong>Sign up</strong>
                     </a>
                     <!-- <a @click='this.login' class="button is-light">
@@ -135,13 +138,17 @@
 <script>
 
 import throttle from 'lodash/throttle'
-
+import SignupForm from './SignupForm'
 
 export default {
     name: 'mainHeader',
+    components: {
+        SignupForm
+    },
 
     data() {
         return {
+            isSignupModalActive: false,
             sampleData: [
                 'Angular',
                 'Angular 2',
@@ -176,11 +183,9 @@ export default {
     // },
 
     methods : {
-        signup : function () {
-            this.$buefy.toast.open({
-                message: 'This function will be implemented soon. No promise though..',
-                type: 'is-success'
-            })
+
+        openSignupModal : function () {
+            this.isSignupModalActive = true
         },
 
         // Make sure there is 1 second gap between flter requests

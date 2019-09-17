@@ -98,6 +98,7 @@
                 // console.log(fileURL)
                 this.previewImageURL = fileURL
                 this.isImageModalActive = true
+                console.log(this.$parent)
             }
         }
     }

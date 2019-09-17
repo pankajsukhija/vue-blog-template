@@ -34,6 +34,12 @@ export default new Router({
     },
 
     {
+      path: '/charts',
+      name: 'charts',
+      component: () => import( './views/Charts.vue')
+    },
+
+    {
       path: '*',
       component : () => import( './views/NotFound.vue')
     }
